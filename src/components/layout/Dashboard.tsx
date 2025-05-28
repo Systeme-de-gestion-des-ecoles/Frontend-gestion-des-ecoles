@@ -9,7 +9,7 @@ const transactions = [
     total: '$799.00',
     status: 'Paid',
   },
-  // ... autres transactions
+
 ];
 
 export default function Dashboard() {

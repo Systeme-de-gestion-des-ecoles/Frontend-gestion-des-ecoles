@@ -1,8 +1,8 @@
 export default function ComportementForm() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="flex items-center justify-center lg:p-4 py-10">
       <div className="bg-[#002F6C] rounded-t-lg text-white shadow-md w-full max-w-md">
-        <div className="p-6">
+        <div className="p-4">
           <h2 className="text-center text-xl font-bold underline mb-6">
             Enregistrer un comportement
           </h2>

@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
        colors: {
-        bleuFonce: '#043873',       // Bleu foncé
+        bleuFonce: '#0B3464',       // Bleu foncé
         orange: '#F5A623',     // Orange
         grisClaire: '#f3f4f6',         // Gris clair
         darkNoir: '#111827',          // Presque noir

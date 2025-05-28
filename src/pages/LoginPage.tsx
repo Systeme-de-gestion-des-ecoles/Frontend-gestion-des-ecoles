@@ -1,7 +1,7 @@
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-[#002F6C] rounded-t-lg text-white shadow-md w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-2">
+      <div className="bg-bleuFonce rounded-t-lg text-white shadow-md w-full max-w-md">
         <div className="p-6">
           <h2 className="text-center text-xl font-bold underline mb-6">
             CONNEXION AU COMPTE
