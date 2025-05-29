@@ -9,12 +9,16 @@ import LoginPage from './pages/LoginPage';
 import FormComportmnt from './pages/FormComportmnt';
 import ListEleves from './pages/ChefDeClasse/ListEleves';
 
-// Layout
+
 import DashboardLayout from './components/layout/DashboardLayout';
 import Dashboard from './components/layout/Dashboard';
 import ClassList from './pages/ClasseList';
-import AddClass from './pages/AddClasse';
 import ChefClassePage from './pages/ChefDeClasse/ChefClassePage';
+import PageParent from './pages/ParentEleve/PageParents';
+import PageLayout from './pages/surveillantPage/PageLayout';
+import AddClass from './pages/AddClasse';
+
+
 
 
 
@@ -34,10 +38,21 @@ export default function App() {
       <Routes>
         {/* Route publique */}
         <Route path="/login" element={<LoginPage />} />
-        {/* 🟢 Route dédiée au chef de classe */}
+        {/* Route dédiée au chef de classe */}
         <Route path="/chef-classe" element={
           <ProtectedRoute>
             <ChefClassePage />
+          </ProtectedRoute>
+        } />
+        <Route path="/page-parent" element={
+          <ProtectedRoute>
+            <PageParent />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/page-surveillant" element={
+          <ProtectedRoute>
+            <PageLayout />
           </ProtectedRoute>
         } />
          
@@ -48,10 +63,9 @@ export default function App() {
           </ProtectedRoute>
         }>
           <Route index element={<Dashboard />} />
-          <Route path="/formulaire-comportement" element={<FormComportmnt />} />
           <Route path="/liste-des-eleves" element={<ListEleves />} />
-          <Route path="/ajouter-classe" element={<AddClass />} />
           <Route path='/liste-eleves' element={<ClassList />}  />
+          <Route path="/formulaire-comportement" element={<FormComportmnt />} />
         </Route>
       </Routes>
     </Router>

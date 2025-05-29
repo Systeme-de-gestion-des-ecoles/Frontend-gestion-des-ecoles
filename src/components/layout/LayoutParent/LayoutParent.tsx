@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
-import Header from "./Header";
+import HeaderChef from "../layoutChefClasse/Header";
+
+
 
 type Props = {
   children: ReactNode;
@@ -8,10 +10,10 @@ type Props = {
   onLogout: () => void;
 };
 
-export default function LayoutChef({ children,personaliseNamPage, userName, onLogout }: Props) {
+export default function LayoutParent({ children, userName, personaliseNamPage, onLogout }: Props) {
   return (
     <div className="min-h-screen bg-gray-100">
-      <Header userName={userName} personaliseNamPage={personaliseNamPage} onLogout={onLogout} />
+      <HeaderChef userName={userName} personaliseNamPage={personaliseNamPage} onLogout={onLogout} />
       <main className="p-4">{children}</main>
     </div>
   );

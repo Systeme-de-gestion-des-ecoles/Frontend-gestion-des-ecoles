@@ -4,10 +4,11 @@ import CloseIcon from "@mui/icons-material/Close";
 
 type Props = {
   userName: string;
+  personaliseNamPage: string;
   onLogout: () => void;
 };
 
-export default function HeaderChef({ userName, onLogout }: Props) {
+export default function HeaderChef({ userName,personaliseNamPage, onLogout }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -20,7 +21,7 @@ export default function HeaderChef({ userName, onLogout }: Props) {
             alt="profil"
             className="w-10 h-10 rounded-full object-cover border-2 border-white"
           />
-          <h1 className="text-lg font-bold hidden sm:block">Chef de Classe</h1>
+          <h1 className="text-lg font-bold hidden sm:block">{personaliseNamPage}</h1>
         </div>
 
         {/* Desktop actions */}

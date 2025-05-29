@@ -7,9 +7,10 @@ export default function ChefClassePage() {
   };
 
   const userName = "Jean-Paul Chef";
+  const personaliseNamPage = "Chef de classe";
 
   return (
-    <LayoutChef userName={userName} onLogout={handleLogout}>
+    <LayoutChef userName={userName} personaliseNamPage={personaliseNamPage} onLogout={handleLogout}>
       <ListEleves />
     </LayoutChef>
   );
