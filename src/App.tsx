@@ -4,8 +4,6 @@ import 'simplebar/dist/simplebar.min.css';
 import 'simplebar-react/dist/simplebar.min.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// Pages
-import LoginPage from './pages/LoginPage';
 import FormComportmnt from './pages/FormComportmnt';
 import ListEleves from './pages/ChefDeClasse/ListEleves';
 
@@ -27,7 +25,6 @@ import Chauffeur from './pages/Chauffeur';
 import Releve_note from './pages/Releve_note';
 import Profil_eleve from './pages/Profil_eleve';
 import ReleveNoteParent from './pages/ReleveNoteParent';
-import AjouterSujet from './pages/projetPm/AjouterSujet';
 import Layout from './pages/profeseur/Layout';
 
 
@@ -55,9 +52,6 @@ export default function App() {
         <Route path="/releve_note" element={<Releve_note/>} />
        <Route path="/profil_eleve" element={<Profil_eleve/>} />
 
-
-        {/* Route publique */}
-        <Route path="/login" element={<LoginPage />} />
         {/* Route dédiée au chef de classe */}
         <Route path="/chef-classe" element={
           <ProtectedRoute>
@@ -98,8 +92,6 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/eleve" element={<Eleve/>} />
         </Route>
-
-      <Route path="/ajouter-sujet" element={<AjouterSujet />} />
       </Routes>
 
     </Router>
