@@ -6,10 +6,12 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ClassIcon from '@mui/icons-material/Class';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import EditNoteIcon from '@mui/icons-material/EditNote';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
+import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 
 type SidebarProps = {
   sidebarOpen: boolean;
@@ -19,15 +21,15 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: SidebarProps) => {
-  const [openCourses, setOpenCourses] = useState(false);
   const [openTeachers, setOpenTeachers] = useState(false);
   const [OpenClasses, setOpenClasses] = useState(false);
   const [OpenDiscipline, setOpenDiscipline] = useState(false);
+  const [OpenMatiere, setOpenMatiere] = useState(false);
+
 
   // Fonction pour fermer les sous-menus quand on réduit la sidebar
   const handleCollapse = () => {
     if (!isCollapsed) {
-      setOpenCourses(false);
       setOpenTeachers(false);
       setOpenClasses(false);
     }
@@ -82,46 +84,46 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {!isCollapsed && <span className="ml-2">Dashboard</span>}
           </NavLink>
 
-          {/* Dropdown: Gestion des cours */}
+            {/* Dropdown: Gestion des matiere */}
           <div>
             <button
-              onClick={() => setOpenCourses(!openCourses)}
+              onClick={() => setOpenMatiere(!OpenMatiere)}
               className={`w-full py-3 px-3 rounded text-grisClaire hover:bg-sky-800 font-bold flex items-center justify-between ${
-                openCourses && !isCollapsed ? 'bg-sky-900' : ''
+                OpenMatiere && !isCollapsed ? 'bg-sky-900' : ''
               }`}
               title="Gestion Notes"
             >
               <div className="flex items-center">
-                <EditNoteIcon />
-                {!isCollapsed && <span className="ml-2">Gestion Notes</span>}
+                <MedicalInformationIcon />
+                {!isCollapsed && <span className="ml-2">Gestion Matiere</span>}
               </div>
               {!isCollapsed && (
                 <span>
-                  {openCourses ? <ExpandMoreIcon /> : <KeyboardArrowRightIcon />}
+                  {OpenMatiere ? <ExpandMoreIcon /> : <KeyboardArrowRightIcon />}
                 </span>
               )}
             </button>
-            {openCourses && !isCollapsed && (
+            {OpenMatiere && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/courses"
+                  to="/ajouter_matiere"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
-                      isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
                     }`
                   }
                 >
-                  Voir les notes
+                  Ajouter matiere
                 </NavLink>
                 <NavLink
-                  to="/courses/new"
+                  to="assignation"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
-                      isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
                     }`
                   }
                 >
-                  Remplire les notes
+                  Assigner une matiere
                 </NavLink>
               </div>
             )}
@@ -149,20 +151,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {openTeachers && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/teachers"
+                  to="/register"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
-                      isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
                     }`
                   }
                 >
                   Creer un utilisateur
                 </NavLink>
                 <NavLink
-                  to="/teachers/new"
+                  to=""
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
-                      isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
                     }`
                   }
                 >
@@ -203,16 +205,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
                 >
                   Voir liste classes
                 </NavLink>
-                <NavLink
-                  to="/ajouter-classe"
-                  className={({ isActive }) =>
-                    `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
-                      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
-                    }`
-                  }
-                >
-                  Ajouter une classe
-                </NavLink>
+
               </div>
             )}
           </div>
@@ -227,7 +220,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
               title="Gestion Discipline"
             >
               <div className="flex items-center">
-                <AccountBoxIcon />
+                <AssignmentLateIcon />
                 {!isCollapsed && <span className="ml-2">Gestion Discipline</span>}
               </div>
               {!isCollapsed && (
@@ -251,6 +244,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
               </div>
             )}
           </div>
+          
+              <NavLink
+            to="/eleve"
+            className={({ isActive }) =>
+              `py-3 px-3 rounded no-underline  text-grisClaire font-bold hover:bg-sky-800   flex items-center ${
+                isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
+              }`
+            }
+            title="Transactions"
+          >
+            <PersonAddIcon />
+            {!isCollapsed && <span className="ml-2">Ajouter eleves</span> }
+          </NavLink>
 
           {/* Settings */}
           <NavLink
@@ -270,7 +276,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             to="/login"
             className={({ isActive }) =>
               `py-3 px-3 rounded no-underline  text-grisClaire font-bold hover:bg-sky-900  bg-sky-800 flex items-center ${
-                isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
               }`
             }
             title="Transactions"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import LoginPage from "../../../pages/LoginPage";
 
 type Props = {
   userName: string;
@@ -10,6 +11,12 @@ type Props = {
 
 export default function HeaderChef({ userName,personaliseNamPage, onLogout }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleLogout = () => {
+    onLogout();
+    setShowLoginModal(true); // Ouvre le modal après déconnexion
+  };
 
   return (
     <header className="bg-bleuFonce text-white px-6 py-3 shadow-md">
@@ -28,7 +35,7 @@ export default function HeaderChef({ userName,personaliseNamPage, onLogout }: Pr
         <div className="hidden md:flex items-center space-x-4">
           <span className="text-sm">Bienvenue, {userName}</span>
           <button
-            onClick={onLogout}
+            onClick={handleLogout}
             className="bg-orange px-3 py-1 rounded hover:bg-yellow-600 text-sm"
           >
             Déconnexion
@@ -55,6 +62,11 @@ export default function HeaderChef({ userName,personaliseNamPage, onLogout }: Pr
             Déconnexion
           </button>
         </div>
+      )}
+
+       {/* Modal de login */}
+      {showLoginModal && (
+        <LoginPage onClose={() => setShowLoginModal(false)} />
       )}
     </header>
   );
