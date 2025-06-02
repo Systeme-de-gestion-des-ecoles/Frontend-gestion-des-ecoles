@@ -72,10 +72,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
         <nav className="flex-1 flex flex-col gap-2 px-2 py-4 text-grisClaire overflow-y-auto">
           {/* Dashboard */}
           <NavLink
-            to="/overview"
+            to="/"
             className={({ isActive }) =>
               `py-3 px-3 rounded no-underline text-grisClaire font-bold hover:bg-sky-800 flex items-center ${
-                isActive ? 'bg-gray-100 text-blue-600 font-semibold' : ''
+                isActive ? 'text-gray-100 bg-sky-800 font-semibold' : ''
               }`
             }
             title="Dashboard"

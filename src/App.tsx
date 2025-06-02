@@ -26,6 +26,7 @@ import Releve_note from './pages/Releve_note';
 import Profil_eleve from './pages/Profil_eleve';
 import ReleveNoteParent from './pages/ReleveNoteParent';
 import Layout from './pages/profeseur/Layout';
+import LoginPage from './pages/LoginPage';
 
 
 type ProtectedRouteProps = {
@@ -92,6 +93,9 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/eleve" element={<Eleve/>} />
         </Route>
+
+        {/** route bublique  */}
+        <Route path="/login" element={<LoginPage onClose={() => { /* logique de fermeture */ }} />} />
       </Routes>
 
     </Router>
