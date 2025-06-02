@@ -11,6 +11,15 @@ import AjouterMatiere from './pages/Ajouter_matiere';
 import Chauffeur from './pages/Chauffeur';
 import Releve_note from './pages/Releve_note';
 import Profil_eleve from './pages/Profil_eleve';
+import Utilisateurs from './pages/Utilisateurs';
+import ListAdmin from './pages/ListAdmin';
+import ListChauffeur from './pages/ListChauffeur';
+import ListCuisinier from './pages/ListCuisinier';
+import ListParent from './pages/Listparent';
+import ListSurveillant from './pages/ListSurveillant';
+import ListEnseignant from './pages/ListEnseignant';
+
+
 
 
 
@@ -28,6 +37,14 @@ function App() {
         <Route path="/ajouter_matiere" element={<AjouterMatiere/>} />
         <Route path="/releve_note" element={<Releve_note/>} />
        <Route path="/profil_eleve" element={<Profil_eleve/>} />
+       <Route path="/utilisateurs" element={<Utilisateurs/>} />
+       <Route path="/listadmin" element={<ListAdmin/>} />
+       <Route path="/listchauffeur" element={<ListChauffeur/>} />
+       <Route path="/listcuisinier" element={<ListCuisinier/>} />
+       <Route path="/listparent" element={<ListParent/>} />
+       <Route path="/listsurveillant" element={<ListSurveillant/>} />
+       <Route path="/listenseignant" element={<ListEnseignant/>} />
+
 
       </Routes>
     </Router>
