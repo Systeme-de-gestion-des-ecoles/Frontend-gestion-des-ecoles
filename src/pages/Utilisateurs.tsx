@@ -22,7 +22,7 @@ const Utilisateurs: React.FC = () => {
                 <div className="text-black">{utilisateur.icon}</div>
                 <span className="font-medium">{utilisateur.label}</span>
               </div>
-              <button className="bg-orange-500 text-white text-sm font-semibold py-1 px-3 rounded hover:bg-orange-600">
+              <button className="bg-orange text-white text-sm font-semibold py-1 px-3 rounded hover:bg-orange-600">
                 Voir la liste
               </button>
             </div>

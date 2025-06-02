@@ -89,7 +89,7 @@ const ListSurveillant: React.FC = () => {
                 </td>
                 <td className="border border-black p-2">
                   <div className="flex justify-center items-center gap-2">
-                    <button className="bg-orange-500 text-white text-sm font-semibold py-1 px-2 rounded hover:bg-orange-600">
+                    <button className="bg-orange text-white text-sm font-semibold py-1 px-2 rounded hover:bg-orange-600">
                       Voir les details
                     </button>
                     <button

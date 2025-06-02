@@ -93,7 +93,7 @@ const Releve_note: React.FC = () => {
         </table>
 
         <div className="flex justify-center mt-6">
-          <button className="bg-orange-500 text-white font-bold py-2 px-20 rounded hover:bg-orange-600">
+          <button className="bg-orange text-white font-bold py-2 px-20 rounded hover:bg-orange-600">
             ENREGISTRER
           </button>
         </div>

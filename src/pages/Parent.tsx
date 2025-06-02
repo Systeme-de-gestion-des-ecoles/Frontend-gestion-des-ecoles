@@ -113,7 +113,7 @@ const Parent: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-orange-500 text-white font-bold py-2 rounded hover:bg-orange-600"
+          className="w-full bg-orange text-white font-bold py-2 rounded hover:bg-orange-600"
         >
           SOUMETTRE
         </button>

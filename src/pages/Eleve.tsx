@@ -28,94 +28,92 @@ const Eleve: React.FC = () => {
   const inputClass = "w-full px-3 py-2 rounded bg-white text-sm";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-[#032B5F] p-9 w-[500px] rounded-lg"
-      >
-        <h2 className="text-white text-center text-lg font-bold mb-6">
-         ELEVE
-        </h2>
+    <div className="flex items-center justify-center lg:p-4 py-20">
+      <div className="bg-[#002F6C] rounded-t-lg text-white shadow-md w-full max-w-md">
+        <form onSubmit={handleSubmit} className="p-4">
+          <h2 className="text-white text-center text-lg font-bold mb-6">ÉLÈVE</h2>
 
-        <div className="space-y-5">
-          <select
-            name="cycle"
-            value={formData.cycle}
-            onChange={handleChange}
-            className={inputClass}
-          >
-            <option value="">Cycle</option>
-            <option value="1er Cycle">1er Cycle</option>
-            <option value="2nd Cycle">2nd Cycle</option>
-          </select>
-
-          <select
-            name="classe"
-            value={formData.classe}
-            onChange={handleChange}
-            className={inputClass}
-          >
-            <option value="">Classe</option>
-            <option value="1er Cycle">6e</option>
-            <option value="1er Cycle">5e</option>
-            <option value="1er Cycle">4e</option>
-            <option value="1er Cycle">3e</option>
-            <option value="1er Cycle">2nd</option>
-            <option value="1er Cycle">1e</option>
-            <option value="1er Cycle">Tle</option>
-           
-          </select>
-
-          <input
-            type="text"
-            name="matricule"
-            placeholder="Matricule"
-            value={formData.matricule}
-            onChange={handleChange}
-            className={inputClass}
-          />
-
-          <input
-            type="date"
-            name="dateNaissance"
-            value={formData.dateNaissance}
-            onChange={handleChange}
-            className={inputClass}
-          />
-
-          <input
-            type="text"
-            name="nomParent"
-            placeholder="Nom du Parent"
-            value={formData.nomParent}
-            onChange={handleChange}
-            className={inputClass}
-          />
-
-          {/* Upload photo avec icône à droite */}
-          <label className="relative block">
-            <input
-              type="file"
-              accept="image/*"
-              name="photo"
+          <div className="space-y-5">
+            <select
+              name="cycle"
+              value={formData.cycle}
               onChange={handleChange}
-              className="opacity-0 absolute inset-0 z-10 cursor-pointer"
-            />
-            <div className="flex items-center justify-between px-3 py-2 mx-3 rounded bg-white text-sm border border-gray-300">
-              <span className="text-gray-500">Télécharger une photo</span>
-              <GetAppIcon/>
-              
-            </div>
-          </label>
-        </div>
+              className={inputClass}
+            >
+              <option value="">Cycle</option>
+              <option value="1er Cycle">1er Cycle</option>
+              <option value="2nd Cycle">2nd Cycle</option>
+            </select>
 
-        <button
-          type="submit"
-          className="w-full bg-orange-500 text-white font-bold py-2 rounded hover:bg-orange-600 mt-6"
-        >
-          Soumettre
-        </button>
-      </form>
+            <select
+              name="classe"
+              value={formData.classe}
+              onChange={handleChange}
+              className={inputClass}
+            >
+              <option value="">Classe</option>
+              <option value="6e">6e</option>
+              <option value="5e">5e</option>
+              <option value="4e">4e</option>
+              <option value="3e">3e</option>
+              <option value="2nd">2nd</option>
+              <option value="1e">1e</option>
+              <option value="Tle">Tle</option>
+            </select>
+
+            <input
+              type="text"
+              name="matricule"
+              placeholder="Matricule"
+              value={formData.matricule}
+              onChange={handleChange}
+              className={inputClass}
+            />
+
+            <input
+              type="date"
+              name="dateNaissance"
+              value={formData.dateNaissance}
+              onChange={handleChange}
+              className={inputClass}
+            />
+
+            <input
+              type="text"
+              name="nomParent"
+              placeholder="Nom du Parent"
+              value={formData.nomParent}
+              onChange={handleChange}
+              className={inputClass}
+            />
+
+            <label className="relative block">
+              <input
+                type="file"
+                accept="image/*"
+                name="photo"
+                onChange={handleChange}
+                className="opacity-0 absolute inset-0 z-10 cursor-pointer"
+              />
+              <div className="flex items-center justify-between px-3 py-2 rounded bg-white text-sm border border-gray-300">
+                <span className="text-gray-500">
+                  {formData.photo ? formData.photo.name : 'Télécharger une photo'}
+                </span>
+                <GetAppIcon />
+              </div>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-orange text-white font-bold py-2 rounded hover:bg-orange-600 mt-6"
+          >
+            Soumettre
+          </button>
+        </form>
+
+        <div className="h-2 bg-orange rounded-t-lg"></div>
+      </div>
     </div>
   );
 };
