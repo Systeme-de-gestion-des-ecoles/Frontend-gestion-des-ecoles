@@ -1,4 +1,4 @@
-import { BookOpen, Users, GraduationCap, Calendar, Clock, MoreVertical } from 'lucide-react';
+import { BookOpen, Users, GraduationCap, Calendar, Clock } from 'lucide-react';
 
 const stats = [
   { title: "Élèves inscrits", value: "1243", icon: Users, trend: "+12% ce mois" },
@@ -12,17 +12,6 @@ const quickActions = [
   { title: "Créer un cours", icon: BookOpen },
   { title: "Planifier un examen", icon: GraduationCap },
   { title: "Voir l'emploi du temps", icon: Calendar },
-];
-
-const transactions = [
-  {
-    id: '300500',
-    plan: 'Platinum Subscription Plan',
-    issueDate: '18 May 2025',
-    dueDate: '18 Jun 2025',
-    total: '$799.00',
-    status: 'Paid',
-  },
 ];
 
 export default function Dashboard() {
@@ -80,43 +69,6 @@ export default function Dashboard() {
             placeholder="Rechercher..."
             className="px-3 py-1.5 border rounded text-sm w-1/3"
           />
-        </div>
-        
-        <div className="overflow-auto rounded">
-          <table className="min-w-full text-sm text-left">
-            <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
-              <tr>
-                <th className="px-6 py-3">#</th>
-                <th className="px-6 py-3">Facture pour</th>
-                <th className="px-6 py-3">Date d'émission</th>
-                <th className="px-6 py-3">Date d'échéance</th>
-                <th className="px-6 py-3">Total</th>
-                <th className="px-6 py-3">Statut</th>
-                <th className="px-6 py-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {transactions.map((tx) => (
-                <tr key={tx.id} className="border-t hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">{tx.id}</td>
-                  <td className="px-6 py-4">{tx.plan}</td>
-                  <td className="px-6 py-4">{tx.issueDate}</td>
-                  <td className="px-6 py-4">{tx.dueDate}</td>
-                  <td className="px-6 py-4">{tx.total}</td>
-                  <td className="px-6 py-4">
-                    <span className="px-2 py-1 rounded-full bg-green-100 text-green-800 text-xs font-medium">
-                      {tx.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-right">
-                    <button className="p-1 rounded-full hover:bg-gray-100">
-                      <MoreVertical className="w-4 h-4 text-gray-500" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
