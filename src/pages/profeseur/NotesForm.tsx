@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import type { Student } from "./PageProf";
 
 type NotesFormProps = {
-  student: Student | null | undefined; 
+  student: Student | null | undefined;
   matiere: string;
   onClose: () => void;
+  onSave: (updatedStudent: Student) => void; // ✅ AJOUTÉ ICI
 };
 
-export default function NotesForm({ student, matiere, onClose }: NotesFormProps) {
+export default function NotesForm({ student, matiere, onClose, onSave }: NotesFormProps) {
   const [note, setNote] = useState<number | "">("");
   const [appreciation, setAppreciation] = useState("");
   const [isEditMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     if (student && matiere) {
-      // Vérifier si une note existe déjà pour cette matière
       const existingNote = student.matieres?.find(m => m.nom === matiere);
       if (existingNote) {
         setNote(existingNote.note);
@@ -30,19 +30,32 @@ export default function NotesForm({ student, matiere, onClose }: NotesFormProps)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (note === "" || !student || !matiere) return;
 
-    // Ici, vous devrez implémenter la logique pour sauvegarder la note
-    // Soit en modifiant le state parent, soit via une API
-    console.log({
-      studentId: student.id,
-      matiere,
-      note: Number(note),
-      appreciation
-    });
+    // ✅ Met à jour ou ajoute la matière
+    const updatedMatieres = student.matieres ? [...student.matieres] : [];
+    const matiereIndex = updatedMatieres.findIndex(m => m.nom === matiere);
 
-    // Fermer le formulaire après soumission
+    const newNoteData = {
+      nom: matiere,
+      note: Number(note),
+      appreciation,
+    };
+
+    if (matiereIndex >= 0) {
+      updatedMatieres[matiereIndex] = newNoteData;
+    } else {
+      updatedMatieres.push(newNoteData);
+    }
+
+    const updatedStudent = {
+      ...student,
+      matieres: updatedMatieres,
+    };
+
+    // ✅ Appelle la fonction de sauvegarde du parent
+    onSave(updatedStudent);
     onClose();
   };
 
@@ -65,7 +78,7 @@ export default function NotesForm({ student, matiere, onClose }: NotesFormProps)
       <h2 className="text-xl font-semibold mb-4 text-bleuFonce">
         {isEditMode ? "Modifier la note" : "Ajouter une note"}
       </h2>
-      
+
       <div className="mb-4">
         <p className="font-medium">Élève: <span className="font-normal">{student.prenom} {student.nom}</span></p>
         <p className="font-medium">Classe: <span className="font-normal">{student.classe}</span></p>

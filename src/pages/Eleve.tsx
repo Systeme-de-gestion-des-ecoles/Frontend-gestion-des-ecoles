@@ -36,6 +36,7 @@ const Eleve: React.FC = () => {
           <div className="space-y-5">
             <select
               name="cycle"
+              data-testid="cycle"
               value={formData.cycle}
               onChange={handleChange}
               className={inputClass}
@@ -47,6 +48,7 @@ const Eleve: React.FC = () => {
 
             <select
               name="classe"
+              data-testid="classe"
               value={formData.classe}
               onChange={handleChange}
               className={inputClass}
@@ -73,6 +75,7 @@ const Eleve: React.FC = () => {
             <input
               type="date"
               name="dateNaissance"
+              data-testid="dateNaissance"
               value={formData.dateNaissance}
               onChange={handleChange}
               className={inputClass}
