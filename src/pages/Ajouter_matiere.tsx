@@ -53,6 +53,7 @@ const AjouterMatiere: React.FC = () => {
           <div className={groupClass}>
             <select
               name="heures"
+              data-testid="select-heures"
               value={formData.heures}
               onChange={handleChange}
               className={`${inputClass} ${!formData.heures ? 'text-gray-500' : 'text-black'}`}
@@ -69,6 +70,7 @@ const AjouterMatiere: React.FC = () => {
           <div className={groupClass}>
             <select
               name="classe"
+              data-testid="select-classe"
               value={formData.classe}
               onChange={handleChange}
               className={`${inputClass} ${!formData.classe ? 'text-gray-500' : 'text-black'}`}
