@@ -57,8 +57,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
         {/* Header du sidebar avec bouton de collapse */}
         <div className="p-4 flex items-center justify-between border-b border-gray-700">
           {!isCollapsed && (
-            <div className="font-bold text-xl text-orange">KidsRoute</div>
-          )}
+        <div className="flex items-center bg-gray-200 rounded-md px-2 gap-2">
+          <img 
+            src="/images/logoImg.png" 
+            alt="KidsRoute Logo"
+            className="h-12 w-auto object-contain"
+          />
+          <span className="font-bold text-xl "><span className='text-bleuFonce'>SCO</span><span className='text-orange'>LINK</span></span>
+        </div>
+      )}
           <button
             onClick={handleCollapse}
             className="text-white hover:text-orange focus:outline-none"

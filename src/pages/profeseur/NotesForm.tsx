@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Student } from "./PageProf"; // Ajoutez 'type' devant l'import
+import type { Student } from "./PageProf";
 
 type NotesFormProps = {
   student: Student | null | undefined; 
