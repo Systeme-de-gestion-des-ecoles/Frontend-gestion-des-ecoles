@@ -3,5 +3,5 @@ export interface User {
   nom: string;
   email: string;
   motDePasse: string;
-  role: "ELEVE" | "PROFESSEUR" | "SURVEILLANT" | "PARENT";
+  role: "ADMIN"|"ELEVE" | "PROFESSEUR" | "SURVEILLANT" | "PARENT";
 }
