@@ -1,12 +1,12 @@
 type LoginPageProps = {
-  onClose: () => void; // Ajout de la prop onClose
+  onClose: () => void; 
 };
 
 export default function LoginPage({ onClose }: LoginPageProps) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-bleuFonce rounded-t-lg text-white shadow-md w-full max-w-md relative">
-        {/* Bouton de fermeture */}
+
         <button 
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-300 hover:text-white"

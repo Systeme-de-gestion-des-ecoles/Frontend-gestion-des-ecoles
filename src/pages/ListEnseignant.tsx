@@ -8,17 +8,17 @@ const ListEnseignant: React.FC = () => {
     {
       numero: 1,
       nom: 'Ange raina',
-      photo: 'public/Snapchat-617963591.jpg',
+      photo: 'public/image3.jpg',
     },
     {
       numero: 2,
       nom: 'Dassi ange',
-      photo: 'public/Snapchat-1177067892.jpg',
+      photo: 'public/image2.jpg',
     },
     {
       numero: 3,
       nom: '',
-      photo: 'public/Snapchat-2126369099.jpg',
+      photo: 'public/image1.jpg',
     },
     
   ]);
@@ -36,7 +36,7 @@ const ListEnseignant: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      {/* Sidebar */}
+
       <div className="bg-[#002D62] text-white w-16 sm:w-64 p-4">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -57,7 +57,7 @@ const ListEnseignant: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+
       <div className="flex-1 p-6">
         <h2 className="text-center text-2xl font-bold mb-6">LISTE DES ENSEIGNANTS</h2>
         <table className="w-full border border-black text-center mb-6">

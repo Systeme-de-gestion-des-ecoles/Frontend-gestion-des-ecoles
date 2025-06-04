@@ -32,6 +32,7 @@ const Remplissage_note: React.FC = () => {
         <div className={groupClass}>
           <select
             name="classe"
+            aria-label="Classe"
             value={formData.classe}
             onChange={handleChange}
             className={placeholderClass(formData.classe)}
@@ -47,6 +48,7 @@ const Remplissage_note: React.FC = () => {
         <div className={groupClass}>
           <select
             name="matiere"
+            aria-label="Matière"
             value={formData.matiere}
             onChange={handleChange}
             className={placeholderClass(formData.matiere)}
@@ -62,6 +64,7 @@ const Remplissage_note: React.FC = () => {
         <div className={groupClass}>
           <select
             name="code"
+            aria-label="Code"
             value={formData.code}
             onChange={handleChange}
             className={placeholderClass(formData.code)}
@@ -77,6 +80,7 @@ const Remplissage_note: React.FC = () => {
         <div className={groupClass}>
           <select
             name="sequence"
+            aria-label="Séquence"
             value={formData.sequence}
             onChange={handleChange}
             className={placeholderClass(formData.sequence)}
@@ -91,6 +95,7 @@ const Remplissage_note: React.FC = () => {
         <div className={groupClass}>
           <select
             name="coefficient"
+            aria-label="Coefficient"
             value={formData.coefficient}
             onChange={handleChange}
             className={placeholderClass(formData.coefficient)}

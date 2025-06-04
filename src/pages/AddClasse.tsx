@@ -104,4 +104,4 @@ function AddClass({ onClose, onAddClass }: {
   );
 }
 
-export default AddClass; // Export par défaut
+export default AddClass; 

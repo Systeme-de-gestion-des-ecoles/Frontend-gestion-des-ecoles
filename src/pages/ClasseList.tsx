@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import AddClass from "./AddClasse";
 
 
-// Composant principal de la liste des classes
+
 const ClassList: React.FC = () => {
   const [classes, setClasses] = useState([
     { name: "6eme", chief: "Esperance spinoza Tsafack" },
@@ -28,7 +28,7 @@ const ClassList: React.FC = () => {
 
   return (
     <div className="min-h-screen px-4 sm:px-6 lg:px-8 font-sans">
-      {/* Modale pour l'ajout de classe */}
+      
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div 
@@ -59,7 +59,7 @@ const ClassList: React.FC = () => {
         <h2 className="text-lg font-semibold underline underline-offset-4 text-center mt-4 sm:mt-0">
           Liste des classes de l'école
         </h2>
-        <div className="hidden sm:block w-32" /> {/* Spacing block */}
+        <div className="hidden sm:block w-32" />
       </div>
 
       <div className="w-full overflow-x-auto">

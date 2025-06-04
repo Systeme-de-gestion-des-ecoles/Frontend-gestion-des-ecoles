@@ -26,7 +26,6 @@ const Assignation: React.FC = () => {
         <form onSubmit={handleSubmit} className="p-8">
           <h2 className="text-white text-center text-2xl font-bold mb-4">Assignation de matière</h2>
 
-          {/* Nom de l'enseignant */}
           <div className={groupClass}>
             <input
               type="text"
@@ -38,7 +37,6 @@ const Assignation: React.FC = () => {
             />
           </div>
 
-          {/* Matière */}
           <div className={groupClass}>
             <select
               name="matiere"
@@ -55,7 +53,7 @@ const Assignation: React.FC = () => {
             </select>
           </div>
 
-          {/* Classe */}
+   
           <div className={groupClass}>
             <select
               name="classe"
@@ -73,8 +71,6 @@ const Assignation: React.FC = () => {
               <option value="Terminale">Terminale</option>
             </select>
           </div>
-
-          {/* Bouton de soumission */}
           <button
             type="submit"
             className="w-full bg-orange text-black font-bold py-2 rounded hover:bg-orange-600"

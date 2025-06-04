@@ -12,7 +12,7 @@ describe('Eleve component', () => {
 
     expect(screen.getByTestId('cycle')).toBeInTheDocument();
     expect(screen.getByTestId('classe')).toBeInTheDocument();
-    expect(screen.getByTestId('dateNaissance')).toBeInTheDocument(); // ✅ cohérent avec le champ maintenant
+    expect(screen.getByTestId('dateNaissance')).toBeInTheDocument(); 
   });
 
   it('soumet les données sans erreur', () => {
@@ -24,7 +24,7 @@ describe('Eleve component', () => {
     fireEvent.change(screen.getByTestId('classe'), { target: { value: '5e' } });
     fireEvent.change(screen.getByPlaceholderText(/matricule/i), { target: { value: 'ABC123' } });
     fireEvent.change(screen.getByPlaceholderText(/nom du parent/i), { target: { value: 'Dupont' } });
-    fireEvent.change(screen.getByTestId('dateNaissance'), { target: { value: '2000-01-01' } }); // ✅ correspond au bon champ
+    fireEvent.change(screen.getByTestId('dateNaissance'), { target: { value: '2000-01-01' } }); 
 
     fireEvent.click(screen.getByRole('button', { name: /soumettre/i }));
 

@@ -8,17 +8,17 @@ const ListAdmin: React.FC = () => {
     {
       numero: 1,
       nom: 'Ange raina',
-      photo: 'public/Snapchat-617963591.jpg',
+      photo: 'public/image3.jpg',
     },
     {
       numero: 2,
       nom: 'Dassi ange',
-      photo: 'public/Snapchat-1177067892.jpg',
+      photo: 'public/image2.jpg',
     },
     {
       numero: 3,
       nom: '',
-      photo: 'public/Snapchat-2126369099.jpg',
+      photo: 'public/image2.jpg',
     },
     
   ]);

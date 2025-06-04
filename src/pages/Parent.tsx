@@ -23,7 +23,7 @@ const Parent: React.FC = () => {
   };
 
   const inputClass = "w-full px-3 py-2 rounded bg-gray-200 text-sm";
-  const groupClass = "form-group mb-4"; // <-- tu modifies ici pour tous les champs
+  const groupClass = "form-group mb-4"; 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-300">
