@@ -59,18 +59,6 @@ export default function Dashboard() {
           ))}
         </div>
       </div>
-
-      {/* Transactions récentes */}
-      <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Transactions récentes</h2>
-          <input
-            type="text"
-            placeholder="Rechercher..."
-            className="px-3 py-1.5 border rounded text-sm w-1/3"
-          />
-        </div>
-      </div>
     </div>
   );
 }

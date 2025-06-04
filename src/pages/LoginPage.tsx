@@ -1,5 +1,5 @@
 type LoginPageProps = {
-  onClose: () => void; // Ajout de la prop onClose
+  onClose: () => void; 
 };
 
 export default function LoginPage({ onClose }: LoginPageProps) {

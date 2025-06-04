@@ -3,7 +3,7 @@ import PageSurveillant from "./SurveillantPage";
 
 export default function PageLayout() {
   const handleLogout = () => {
-    console.log("Déconnexion"); // à remplacer par un vrai logout
+    console.log("Déconnexion");
   };
 
   const userName = "DALVIRA Temfack";

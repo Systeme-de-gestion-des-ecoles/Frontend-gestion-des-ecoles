@@ -168,7 +168,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
                   Creer un utilisateur
                 </NavLink>
                 <NavLink
-                  to=""
+                  to="/liste-utilisateur"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''

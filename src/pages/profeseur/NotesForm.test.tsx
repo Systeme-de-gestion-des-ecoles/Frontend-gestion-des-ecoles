@@ -17,7 +17,8 @@ describe('Composant PageProf', () => {
 
   test('permet de sélectionner une classe et affiche les élèves correspondants', () => {
     render(<PageProf />);
-    const selectClasse = screen.getByLabelText(/Choisir une classe/i);
+    const selects = screen.getAllByRole('combobox');
+    const selectClasse = selects[0]; // Premier select : classe
     fireEvent.change(selectClasse, { target: { value: 'CM2' } });
 
     const eleve = screen.getByText(/Espérance/i);
@@ -26,20 +27,22 @@ describe('Composant PageProf', () => {
 
   test('permet de sélectionner une matière après avoir sélectionné une classe', () => {
     render(<PageProf />);
-    const selectClasse = screen.getByLabelText(/Choisir une classe/i);
+    const selects = screen.getAllByRole('combobox');
+    const selectClasse = selects[0];
+    const selectMatiere = selects[1];
+
     fireEvent.change(selectClasse, { target: { value: 'CM2' } });
-
-    const selectMatiere = screen.getByLabelText(/Choisir une matière/i);
     expect(selectMatiere).not.toBeDisabled();
-    fireEvent.change(selectMatiere, { target: { value: 'Mathématiques' } });
 
+    fireEvent.change(selectMatiere, { target: { value: 'Mathématiques' } });
     const note = screen.getByText(/Mathématiques: 15\/20/i);
     expect(note).toBeInTheDocument();
   });
 
   test('filtre les élèves selon la recherche', () => {
     render(<PageProf />);
-    const selectClasse = screen.getByLabelText(/Choisir une classe/i);
+    const selects = screen.getAllByRole('combobox');
+    const selectClasse = selects[0];
     fireEvent.change(selectClasse, { target: { value: 'CM2' } });
 
     const inputRecherche = screen.getByPlaceholderText(/Rechercher un élève.../i);

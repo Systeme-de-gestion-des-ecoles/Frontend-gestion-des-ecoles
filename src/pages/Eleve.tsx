@@ -92,7 +92,6 @@ const Eleve: React.FC = () => {
             className={inputClass}
           />
 
-          {/* Upload photo avec icône à droite */}
           <label className="relative block">
             <input
               type="file"

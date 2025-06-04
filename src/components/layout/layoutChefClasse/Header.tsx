@@ -15,13 +15,12 @@ export default function HeaderChef({ userName,personaliseNamPage, onLogout }: Pr
 
   const handleLogout = () => {
     onLogout();
-    setShowLoginModal(true); // Ouvre le modal après déconnexion
+    setShowLoginModal(true); 
   };
 
   return (
     <header className="bg-bleuFonce text-white px-6 py-3 shadow-md">
       <div className="flex justify-between items-center">
-        {/* Logo + Image rond */}
         <div className="flex items-center gap-3">
           <img
             src="/images/me.jpg"

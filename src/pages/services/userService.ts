@@ -1,17 +1,19 @@
 import api from "../../api/axios";
 
+
 export interface RegisterData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
   username: string;
   password: string;
-  confirmPassword: string;
   role: string;
 }
 
 export const registerUser = async (data: RegisterData) => {
-  const response = await api.post('/users/register', data); // Adapte le endpoint si besoin
+  const payload = {
+    username: data.username,
+    password: data.password,
+    roles: [data.role], // Le backend attend un tableau
+  };
+
+  const response = await api.post('/users', payload);
   return response.data;
 };

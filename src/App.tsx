@@ -27,6 +27,7 @@ import Profil_eleve from './pages/Profil_eleve';
 import ReleveNoteParent from './pages/ReleveNoteParent';
 import Layout from './pages/profeseur/Layout';
 import LoginPage from './pages/LoginPage';
+import UserList from './pages/ListMatier';
 
 
 type ProtectedRouteProps = {
@@ -92,6 +93,8 @@ export default function App() {
           <Route path="/ajouter_matiere" element={<AjouterMatiere/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/eleve" element={<Eleve/>} />
+          <Route path="/liste-utilisateur" element={<UserList/>} />
+          
         </Route>
 
         {/** route bublique  */}

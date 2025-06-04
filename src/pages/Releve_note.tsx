@@ -1,4 +1,3 @@
-// src/pages/ReleveDeNotes.tsx
 import React, { useState } from 'react';
 
 const Releve_note: React.FC = () => {

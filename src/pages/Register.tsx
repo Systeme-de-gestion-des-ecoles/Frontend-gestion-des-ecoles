@@ -1,102 +1,72 @@
 import React, { useState } from 'react';
+import { registerUser } from './services/userService';
+
 
 const Register: React.FC = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
     username: '',
     password: '',
-    confirmPassword: '',
     role: '',
   });
+
+  const [responseMessage, setResponseMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    try {
+      await registerUser(formData);
+      setResponseMessage("Utilisateur créé avec succès !");
+      setFormData({ username: '', password: '', role: '' });
+    } catch (error: any) {
+      setResponseMessage("Erreur lors de la création de l'utilisateur.");
+    }
   };
 
   const inputClass = "w-full px-3 py-2 rounded bg-white text-sm";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <form onSubmit={handleSubmit} className="bg-[#032B5F] p-9 mx-3 w-[500px] rounded-lg">
-        <h2 className="text-white text-center text-lg font-bold mb-4">INSCRIPTION</h2>
+    <div className="min-h-screen flex items-center justify-center">
+      <form onSubmit={handleSubmit} className="bg-[#032B5F] p-9 mx-3 w-[400px] rounded-lg">
+        <h2 className="text-white text-center text-lg font-bold mb-4">Création d'un utilisateur</h2>
 
-        {/* Groupement des champs avec spacing */}
         <div className="space-y-5">
           <input
             type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-            className={inputClass}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-            className={inputClass}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            className={inputClass}
-          />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className={inputClass}
-          />
-          <input
-            type="text"
             name="username"
-            placeholder="User Name"
+            placeholder="Nom d'utilisateur"
             value={formData.username}
             onChange={handleChange}
             className={inputClass}
+            required
           />
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             value={formData.password}
             onChange={handleChange}
             className={inputClass}
-          />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className={inputClass}
+            required
           />
           <select
             name="role"
             value={formData.role}
             onChange={handleChange}
             className={inputClass}
+            required
           >
-            <option value="">Role</option>
+            <option value="">Choisir un rôle</option>
             <option value="admin">Admin</option>
-            <option value="chauffeur">Chauffeur</option>
-            <option value="client">Client</option>
+            <option value="parent">Parent</option>
+            <option value="eleve">Eleve</option>
+            <option value="surveillant">Surveillant</option>
+            <option value="professeur">Professeur</option>
           </select>
         </div>
 
@@ -104,8 +74,12 @@ const Register: React.FC = () => {
           type="submit"
           className="w-full bg-orange-500 text-white font-bold py-2 rounded hover:bg-orange-600 mt-6"
         >
-          Sign Up
+          Créer l'utilisateur
         </button>
+
+        {responseMessage && (
+          <p className="mt-4 text-center text-sm text-white">{responseMessage}</p>
+        )}
       </form>
     </div>
   );
