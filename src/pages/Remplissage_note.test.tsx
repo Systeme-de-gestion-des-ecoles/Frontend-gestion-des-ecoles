@@ -19,11 +19,11 @@ describe('Remplissage_note component', () => {
 
     const selects = screen.getAllByRole('combobox');
 
-    fireEvent.change(selects[0], { target: { value: '6e' } }); // classe
-    fireEvent.change(selects[1], { target: { value: 'Math' } }); // matiere
-    fireEvent.change(selects[2], { target: { value: 'MAT101' } }); // code
-    fireEvent.change(selects[3], { target: { value: '1' } }); // sequence
-    fireEvent.change(selects[4], { target: { value: '2' } }); // coefficient
+    fireEvent.change(selects[0], { target: { value: '6e' } }); 
+    fireEvent.change(selects[1], { target: { value: 'Math' } }); 
+    fireEvent.change(selects[2], { target: { value: 'MAT101' } }); 
+    fireEvent.change(selects[3], { target: { value: '1' } }); 
+    fireEvent.change(selects[4], { target: { value: '2' } }); 
 
     const formData = {
       classe: '6e',
@@ -33,7 +33,7 @@ describe('Remplissage_note component', () => {
       coefficient: '2',
     };
 
-    // Mock console.log
+ 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
 
     fireEvent.click(screen.getByRole('button', { name: /SOUMETTRE/i }));

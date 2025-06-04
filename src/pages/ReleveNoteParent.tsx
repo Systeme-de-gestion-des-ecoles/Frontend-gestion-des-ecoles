@@ -1,4 +1,4 @@
-// src/pages/ReleveNoteParent.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -27,7 +27,7 @@ const ReleveNoteParent: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulation de données - en réalité vous feriez un appel API
+   
     const fetchEleveData = () => {
       setTimeout(() => {
         const elevesData: Eleve[] = [
