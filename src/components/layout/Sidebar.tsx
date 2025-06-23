@@ -267,7 +267,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
 
           {/* Settings */}
           <NavLink
-            to="/settings"
+            to="#"
             className={({ isActive }) =>
               `py-3 px-3 rounded no-underline text-grisClaire font-bold hover:bg-sky-800 flex items-center ${
                 isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''

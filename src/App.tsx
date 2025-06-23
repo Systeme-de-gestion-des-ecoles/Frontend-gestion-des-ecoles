@@ -1,8 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import 'simplebar/dist/simplebar.min.css';
-import 'simplebar-react/dist/simplebar.min.css';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import FormComportmnt from './pages/FormComportmnt';
 import ListEleves from './pages/ChefDeClasse/ListEleves';
@@ -17,7 +14,6 @@ import PageLayout from './pages/surveillantPage/PageLayout';
 import Register from './pages/Register';
 import Eleve from './pages/Eleve';
 import Parent from './pages/Parent';
-import Surveillant from './pages/Surveillant';
 import Remplissage_note from './pages/Remplissage_note';
 import Assignation from './pages/Assigner_matiere';
 import AjouterMatiere from './pages/Ajouter_matiere';
@@ -27,6 +23,7 @@ import Profil_eleve from './pages/Profil_eleve';
 import ReleveNoteParent from './pages/ReleveNoteParent';
 import Layout from './pages/profeseur/Layout';
 import LoginPage from './pages/LoginPage';
+import Surveillant from './pages/Surveillant';
 import UserList from './pages/ListMatier';
 
 
@@ -42,6 +39,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
 export default function App() {
   return (
+     <div className="font-linkedin">
     <Router>
       <Routes>
 
@@ -53,6 +51,7 @@ export default function App() {
         <Route path="/remplissage_note" element={<Remplissage_note/>} />
         <Route path="/releve_note" element={<Releve_note/>} />
        <Route path="/profil_eleve" element={<Profil_eleve/>} />
+
 
         {/* Route dédiée au chef de classe */}
         <Route path="/chef-classe" element={
@@ -102,5 +101,6 @@ export default function App() {
       </Routes>
 
     </Router>
+    </div>
   );
 }

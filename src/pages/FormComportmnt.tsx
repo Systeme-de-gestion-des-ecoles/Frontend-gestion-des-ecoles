@@ -1,8 +1,8 @@
 export default function ComportementForm() {
   return (
-    <div className="flex   items-center justify-center lg:p-4 py-20">
+    <div className="flex items-center justify-center lg:p-4 py-20">
       <div className="bg-[#002F6C] rounded-t-lg text-white shadow-md w-full max-w-md">
-        <div className="p-4">
+        <div className="p-8">
           <h2 className="text-center text-xl font-bold underline mb-6">
             Enregistrer un comportement
           </h2>
@@ -18,15 +18,15 @@ export default function ComportementForm() {
 
             <div className="flex justify-around text-sm">
               <label className="flex items-center space-x-2">
-                <input type="radio" name="gravite" className="accent-gray-400" />
+                <input type="radio" name="gravite" className="accent-green-300" />
                 <span>Faible</span>
               </label>
               <label className="flex items-center space-x-2">
-                <input type="radio" name="gravite" className="accent-gray-300" />
+                <input type="radio" name="gravite" className="accent-orange" />
                 <span>Moyenne</span>
               </label>
               <label className="flex items-center space-x-2">
-                <input type="radio" name="gravite" className="accent-orange-400" />
+                <input type="radio" name="gravite" className="accent-red-700" />
                 <span>Grave</span>
               </label>
             </div>

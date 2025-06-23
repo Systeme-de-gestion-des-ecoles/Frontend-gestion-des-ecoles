@@ -10,6 +10,9 @@ export default {
         grisClaire: '#f3f4f6',         // Gris clair
         darkNoir: '#111827',          // Presque noir
      },
+      fontFamily: {
+        linkedin: ['"Segoe UI"', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
    },
   },
   plugins: [],

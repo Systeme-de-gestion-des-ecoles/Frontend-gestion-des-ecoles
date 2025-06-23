@@ -23,7 +23,7 @@ const Parent: React.FC = () => {
   };
 
   const inputClass = "w-full px-3 py-2 rounded bg-gray-200 text-sm";
-  const groupClass = "form-group mb-4"; // <-- tu modifies ici pour tous les champs
+  const groupClass = "form-group mb-4"; 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-300">
@@ -113,7 +113,7 @@ const Parent: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-orange-500 text-white font-bold py-2 rounded hover:bg-orange-600"
+          className="w-full bg-orange text-white font-bold py-2 rounded hover:bg-orange-600"
         >
           SOUMETTRE
         </button>

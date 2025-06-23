@@ -9,7 +9,7 @@ const Profil_eleve: React.FC = () => {
     
         <div className="flex justify-center mb-4">
           <img
-            src="/Snapchat-1983313911.jpg" 
+            src="/public/image5.jpg" 
             alt="Profil élève"
             className="w-24 h-24 rounded-full object-cover"
           />

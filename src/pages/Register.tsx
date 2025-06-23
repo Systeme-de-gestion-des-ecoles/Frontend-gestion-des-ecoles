@@ -29,6 +29,7 @@ const Register: React.FC = () => {
   };
 
   const inputClass = "w-full px-3 py-2 rounded bg-white text-sm";
+  const groupClass = "mb-4";
 
   return (
     <div className="min-h-screen flex items-center justify-center">

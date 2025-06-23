@@ -5,8 +5,8 @@ import '@testing-library/jest-dom';
 describe('Composant PageProf', () => {
   test('affiche correctement le titre principal', () => {
     render(<PageProf />);
-    const titre = screen.getByText(/GESTION DES NOTES DES ÉLÈVES/i);
-    expect(titre).toBeInTheDocument();
+    const titre = scree
+    re).toBeInTheDocument();
   });
 
   test('affiche un message lorsque aucune classe n\'est sélectionnée', () => {
