@@ -1,8 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import 'simplebar/dist/simplebar.min.css';
-import 'simplebar-react/dist/simplebar.min.css';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // Pages
 import LoginPage from './pages/LoginPage';
