@@ -78,18 +78,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
         {/* Contenu du sidebar */}
         <nav className="flex-1 flex flex-col gap-2 px-2 py-4 text-grisClaire overflow-y-auto">
           {/* Dashboard */}
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `py-3 px-3 rounded no-underline text-grisClaire font-bold hover:bg-sky-800 flex items-center ${
-                isActive ? 'text-gray-100 bg-sky-800 font-semibold' : ''
-              }`
-            }
-            title="Dashboard"
-          >
-            <DashboardIcon />
-            {!isCollapsed && <span className="ml-2">Dashboard</span>}
-          </NavLink>
+<NavLink
+  to="/dashboard"
+  className={({ isActive }) =>
+    `py-3 px-3 rounded no-underline flex items-center font-bold ${
+      isActive && window.location.pathname === "/dashboard" 
+        ? 'bg-sky-800 text-gray-100' 
+        : 'text-grisClaire hover:bg-sky-800'
+    }`
+  }
+  title="Dashboard"
+>
+  <DashboardIcon />
+  {!isCollapsed && <span className="ml-2">Dashboard</span>}
+</NavLink>
 
             {/* Dropdown: Gestion des matiere */}
           <div>
@@ -113,7 +115,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {OpenMatiere && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/ajouter_matiere"
+                  to="/dashboard/ajouter_matiere"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -158,7 +160,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {openTeachers && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/register"
+                  to="/dashboard/register"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -168,7 +170,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
                   Creer un utilisateur
                 </NavLink>
                 <NavLink
-                  to="/liste-utilisateur"
+                  to="/dashboard/liste-utilisateur"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -203,7 +205,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {OpenClasses && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/liste-eleves"
+                  to="/dashboard/liste-eleves"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -239,7 +241,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
             {OpenDiscipline && !isCollapsed && (
               <div className="pl-4 flex flex-col gap-1 mt-1">
                 <NavLink
-                  to="/formulaire-comportement"
+                  to="/dashboard/formulaire-comportement"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
                       isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -253,7 +255,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
           </div>
           
               <NavLink
-            to="/eleve"
+            to="/dashboard/eleve"
             className={({ isActive }) =>
               `py-3 px-3 rounded no-underline  text-grisClaire font-bold hover:bg-sky-800   flex items-center ${
                 isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
@@ -266,18 +268,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
           </NavLink>
 
           {/* Settings */}
-          <NavLink
-            to="#"
-            className={({ isActive }) =>
-              `py-3 px-3 rounded no-underline text-grisClaire font-bold hover:bg-sky-800 flex items-center ${
-                isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
-              }`
-            }
-            title="Paramètres"
-          >
-            <SettingsIcon />
-            {!isCollapsed && <span className="ml-2">Paramètres</span>}
-          </NavLink>
+<NavLink
+  to="#"
+  className="py-3 px-3 rounded no-underline text-grisClaire font-bold hover:bg-sky-800 flex items-center"
+  title="Paramètres"
+>
+  <SettingsIcon />
+  {!isCollapsed && <span className="ml-2">Paramètres</span>}
+</NavLink>
                     {/* Deconnexion */}
           <NavLink
             to="/login"

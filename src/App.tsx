@@ -1,9 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 import FormComportmnt from './pages/FormComportmnt';
 import ListEleves from './pages/ChefDeClasse/ListEleves';
-
 import DashboardLayout from './components/layout/DashboardLayout';
 import Dashboard from './components/layout/Dashboard';
 import ClassList from './pages/ClasseList';
@@ -25,84 +31,162 @@ import Layout from './pages/profeseur/Layout';
 import LoginPage from './pages/LoginPage';
 import Surveillant from './pages/Surveillant';
 import UserList from './pages/ListMatier';
-import HomePage from './pages/Home';
-
+import VisitorHome from './pages/websitepage/VisitorHome';
+import DemoNavigator from './pages/websitepage/DemoNavigator';
 
 type ProtectedRouteProps = {
   children: ReactNode;
 };
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  // Ajoutez ici votre logique d'authentification
-  const isAuthenticated = true; // À remplacer par votre logique réelle
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-};
 
+function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const token = localStorage.getItem('authToken');
+  const location = useLocation();
+
+  if (!token) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return <>{children}</>;
+}
 
 export default function App() {
   return (
-     <div className="font-linkedin">
-    <Router>
-      <Routes>
+    <div className="font-linkedin">
+      <Router>
+        <Routes>
 
-        {/* Route raina */}
+          {/* ✅ Page publique principale (visiteur) */}
+          <Route path="/" element={<VisitorHome />} />
+          <Route path="/demo" element={<DemoNavigator />} />
 
-        <Route path="/chauffeur" element={<Chauffeur/>} />
-        <Route path="/parent" element={<Parent/>} />
-        <Route path="/surveillant" element={<Surveillant/>} />
-        <Route path="/remplissage_note" element={<Remplissage_note/>} />
-        <Route path="/releve_note" element={<Releve_note/>} />
-        <Route path="/profil_eleve" element={<Profil_eleve/>} />
-        <Route path="/home" element={<HomePage/>} />
+          {/* ✅ Page de connexion */}
+          <Route path="/login" element={<LoginPage onClose={() => {}} />} />
 
+          {/* ✅ Dashboard et autres routes protégées sous /dashboard */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            {/* ✅ Route principale du dashboard */}
+            <Route index element={<Dashboard />} />
+            <Route path="liste-des-eleves" element={<ListEleves />} />
+            <Route path="liste-eleves" element={<ClassList />} />
+            <Route path="formulaire-comportement" element={<FormComportmnt />} />
+            <Route path="assignation" element={<Assignation />} />
+            <Route path="ajouter_matiere" element={<AjouterMatiere />} />
+            <Route path="register" element={<Register />} />
+            <Route path="eleve" element={<Eleve />} />
+            <Route path="liste-utilisateur" element={<UserList />} />
+          </Route>
 
-        {/* Route dédiée au chef de classe */}
-        <Route path="/chef-classe" element={
-          <ProtectedRoute>
-            <ChefClassePage />
-          </ProtectedRoute>
-        } />
-    
-      <Route path="/page-parent" element={<PageParent />} />
-      <Route path="/releve_note/:eleveId" element={<ReleveNoteParent />} />
-          
-        
+          {/* ✅ Autres routes protégées individuelles */}
+          <Route
+            path="/chef-classe"
+            element={
+              <ProtectedRoute>
+                <ChefClassePage />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/page-surveillant" element={
-          <ProtectedRoute>
-            <PageLayout />
-          </ProtectedRoute>
-        } />
+          <Route
+            path="/page-parent"
+            element={
+              <ProtectedRoute>
+                <PageParent />
+              </ProtectedRoute>
+            }
+          />
 
+          <Route
+            path="/page-surveillant"
+            element={
+              <ProtectedRoute>
+                <PageLayout />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/page-professeur" element={
-          <ProtectedRoute>
-            <Layout />
-          </ProtectedRoute>
-        } />
-         
-        {/* Routes protégées avec layout */}
-        <Route element={
-          <ProtectedRoute>
-            <DashboardLayout />
-          </ProtectedRoute>
-        }>
-          <Route index element={<Dashboard />} />
-          <Route path="/liste-des-eleves" element={<ListEleves />} />
-          <Route path='/liste-eleves' element={<ClassList />}  />
-          <Route path="/formulaire-comportement" element={<FormComportmnt />} />
-          <Route path="/assignation" element={<Assignation/>} />
-          <Route path="/ajouter_matiere" element={<AjouterMatiere/>} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/eleve" element={<Eleve/>} />
-          <Route path="/liste-utilisateur" element={<UserList/>} />
-          
-        </Route>
+          <Route
+            path="/page-professeur"
+            element={
+              <ProtectedRoute>
+                <Layout />
+              </ProtectedRoute>
+            }
+          />
 
-        {/** route bublique  */}
-        <Route path="/login" element={<LoginPage onClose={() => { /* logique de fermeture */ }} />} />
-      </Routes>
+          <Route
+            path="/chauffeur"
+            element={
+              <ProtectedRoute>
+                <Chauffeur />
+              </ProtectedRoute>
+            }
+          />
 
-    </Router>
+          <Route
+            path="/parent"
+            element={
+              <ProtectedRoute>
+                <Parent />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/surveillant"
+            element={
+              <ProtectedRoute>
+                <Surveillant />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/remplissage_note"
+            element={
+              <ProtectedRoute>
+                <Remplissage_note />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/releve_note"
+            element={
+              <ProtectedRoute>
+                <Releve_note />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/profil_eleve"
+            element={
+              <ProtectedRoute>
+                <Profil_eleve />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/releve_note/:eleveId"
+            element={
+              <ProtectedRoute>
+                <ReleveNoteParent />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ✅ Route inconnue → rediriger vers la page visiteur */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

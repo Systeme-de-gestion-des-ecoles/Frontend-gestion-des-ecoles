@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 
 type LoginPageProps = {
@@ -9,21 +10,39 @@ export default function LoginPage({ onClose }: LoginPageProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await api.post('/login', {
+      const response = await api.post('/user/login', {
         username,
         password,
       });
 
       const token = response.data.token;
-      localStorage.setItem('authToken', token); 
-      alert('Connexion réussie ✅');
-      onClose(); 
-    } catch (error: unknown) {
+      const roles = response.data.roles;
+
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('userRoles', JSON.stringify(roles));
+
+      // 👉 Redirection selon rôle
+      if (roles.includes('ADMIN')) {
+        navigate('/dashboard'); // Dashboard admin
+      } else if (roles.includes('PROFESSEUR')) {
+        navigate('/page-professeur');
+      } else if (roles.includes('SURVEILLANT')) {
+        navigate('/page-surveillant');
+      } else if (roles.includes('CHEF_CLASSE')) {
+        navigate('/chef-classe');
+      } else if (roles.includes('PARENT')) {
+        navigate('/page-parent');
+      } else {
+        setError("Rôle non reconnu");
+      }
+
+    } catch (error: any) {
       console.error(error);
       setError('Échec de la connexion. Vérifiez vos identifiants.');
     }
