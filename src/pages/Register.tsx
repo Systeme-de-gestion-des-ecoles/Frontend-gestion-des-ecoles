@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { registerUser } from '../services/userService';
 
-
 const Register: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -18,18 +17,17 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       await registerUser(formData);
       setResponseMessage("Utilisateur créé avec succès !");
       setFormData({ username: '', password: '', role: '' });
-    } catch (error: any) {
+    } catch (error) {
+      console.error("Erreur lors de la création :", error);
       setResponseMessage("Erreur lors de la création de l'utilisateur.");
     }
   };
 
   const inputClass = "w-full px-3 py-2 rounded bg-white text-sm";
-  const groupClass = "mb-4";
 
   return (
     <div className="min-h-screen flex items-center justify-center">

@@ -25,6 +25,7 @@ import Layout from './pages/profeseur/Layout';
 import LoginPage from './pages/LoginPage';
 import Surveillant from './pages/Surveillant';
 import UserList from './pages/ListMatier';
+import HomePage from './pages/Home';
 
 
 type ProtectedRouteProps = {
@@ -50,7 +51,8 @@ export default function App() {
         <Route path="/surveillant" element={<Surveillant/>} />
         <Route path="/remplissage_note" element={<Remplissage_note/>} />
         <Route path="/releve_note" element={<Releve_note/>} />
-       <Route path="/profil_eleve" element={<Profil_eleve/>} />
+        <Route path="/profil_eleve" element={<Profil_eleve/>} />
+        <Route path="/home" element={<HomePage/>} />
 
 
         {/* Route dédiée au chef de classe */}

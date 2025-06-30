@@ -7,20 +7,11 @@ import SettingsPage from './pages/SettingsPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <DashboardLayout />,
+    element: <DashboardLayout />,    
     children: [
-      {
-        index: true,
-        element: <OverviewPage />,
-      },
-      {
-        path: 'transactions',
-        element: <TransactionsPage />,
-      },
-      {
-        path: 'settings',
-        element: <SettingsPage />,
-      },
+      { index: true, element: <OverviewPage /> },   
+      { path: 'transactions', element: <TransactionsPage /> }, 
+      { path: 'settings', element: <SettingsPage /> },        
     ],
   },
 ]);

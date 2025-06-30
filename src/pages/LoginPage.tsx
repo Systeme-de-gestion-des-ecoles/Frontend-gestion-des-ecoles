@@ -23,7 +23,7 @@ export default function LoginPage({ onClose }: LoginPageProps) {
       localStorage.setItem('authToken', token); 
       alert('Connexion réussie ✅');
       onClose(); 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
       setError('Échec de la connexion. Vérifiez vos identifiants.');
     }

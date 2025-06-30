@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nom": "École Horizon",
+    "logo": "/logos/horizon.png",
+    "description": "Une école innovante tournée vers le numérique et les compétences du futur."
+  },
+  {
+    "id": 2,
+    "nom": "Académie Lumière",
+    "logo": "/logos/lumiere.png",
+    "description": "Nous offrons un cadre propice à l'apprentissage et à l'épanouissement des élèves."
+  },
+  {
+    "id": 3,
+    "nom": "Institut Nova",
+    "logo": "/logos/nova.png",
+    "description": "L'Institut Nova forme des citoyens responsables à travers une pédagogie moderne."
+  }
+]
