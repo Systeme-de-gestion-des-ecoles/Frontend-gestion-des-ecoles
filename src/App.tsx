@@ -33,6 +33,9 @@ import Surveillant from './pages/Surveillant';
 import UserList from './pages/ListMatier';
 import VisitorHome from './pages/websitepage/VisitorHome';
 import DemoNavigator from './pages/websitepage/DemoNavigator';
+import ChauffeurAccueil from './pages/ChauffeurAccueil';
+import AppelEleves from './pages/AppelEleves';
+import SignalerPanne from './pages/SignalerPanne';
 
 type ProtectedRouteProps = {
   children: ReactNode;
@@ -61,6 +64,9 @@ export default function App() {
 
           {/* ✅ Page de connexion */}
           <Route path="/login" element={<LoginPage onClose={() => {}} />} />
+          <Route path="/chauffeur_accueil" element={<ChauffeurAccueil />} />
+          <Route path="/appel_eleves" element={<AppelEleves />} />
+          <Route path="/signaler_panne" element={<SignalerPanne />} />
 
           {/* ✅ Dashboard et autres routes protégées sous /dashboard */}
           <Route

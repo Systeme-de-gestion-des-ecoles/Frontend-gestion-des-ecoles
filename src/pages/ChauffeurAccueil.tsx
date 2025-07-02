@@ -1,67 +1,68 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { BusFront, AlertTriangle, Users, School, Home } from "lucide-react";
 
-export default function ChauffeurAccueil() {
+const ChauffeurAccueil: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#F5A623] p-4 text-blue-800">
-      <div className="max-w-md mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Bonjour M. Paul (Chauffeur Bus 3)</h1>
+    <div className="min-h-screen bg-white p-10 text-[#1E40AF]">
+      <div className="max-w-[1000px] mx-auto">
+        <h1 className="text-3xl font-bold mb-4">
+          Bonjour M. Paul (Chauffeur Bus 3)
+        </h1>
 
-        <Card className="rounded-2xl shadow-md mb-4">
-          <CardContent className="grid grid-cols-2 gap-4 p-4">
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6"
-              onClick={() => navigate("/depart-matin")}
-            >
-              🟢 Départ Matin
-            </Button>
+        <div
+          className="rounded-3xl shadow-md p-15 grid grid-cols-2 gap-4 mb-4 bg-bleuFonce"
+        >
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base"
+            onClick={() => navigate("/depart-matin")}
+          >
+            🟢 Départ Matin
+          </button>
 
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6"
-              onClick={() => navigate("/depart-soir")}
-            >
-              🟠 Départ Soir
-            </Button>
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base"
+            onClick={() => navigate("/depart-soir")}
+          >
+            🟠 Départ Soir
+          </button>
 
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6"
-              onClick={() => navigate("/arrivee-ecole")}
-            >
-              <School className="inline mr-2" /> Arrivée École
-            </Button>
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base"
+            onClick={() => navigate("/arrivee-ecole")}
+          >
+            🎓 Arrivée École
+          </button>
 
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6"
-              onClick={() => navigate("/arrivee-maison")}
-            >
-              <Home className="inline mr-2" /> Arrivée Maison
-            </Button>
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base"
+            onClick={() => navigate("/arrivee-maison")}
+          >
+            🏠 Arrivée Maison
+          </button>
 
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6 col-span-2"
-              onClick={() => navigate("/appel-eleves")}
-            >
-              <Users className="inline mr-2" /> Faire l'appel
-            </Button>
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base col-span-2"
+            onClick={() => navigate("/appel-eleves")}
+          >
+            👥 Faire l'appel
+          </button>
 
-            <Button
-              className="bg-white text-blue-800 font-bold shadow rounded-2xl py-6 col-span-2"
-              onClick={() => navigate("/signaler-panne")}
-            >
-              <AlertTriangle className="inline mr-2" /> Signaler une panne
-            </Button>
-          </CardContent>
-        </Card>
+          <button
+            className="bg-white text-[#1E40AF] font-bold py-6 px-6 rounded-3xl hover:bg-gray-200 shadow-sm cursor-pointer text-base col-span-2"
+            onClick={() => navigate("/signaler-panne")}
+          >
+            ⚠️ Signaler une panne
+          </button>
+        </div>
 
-        <Separator className="my-4 bg-blue-800" />
-        <p className="text-center text-sm">Plateforme Scolink</p>
+        <hr className="border-[#1E40AF] my-4" />
+
+        <p className="text-center text-xs">Plateforme Scolink</p>
       </div>
     </div>
   );
-}
+};
+
+export default ChauffeurAccueil;
