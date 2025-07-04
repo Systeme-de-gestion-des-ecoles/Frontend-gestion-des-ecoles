@@ -25,6 +25,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
   const [OpenClasses, setOpenClasses] = useState(false);
   const [OpenDiscipline, setOpenDiscipline] = useState(false);
   const [OpenMatiere, setOpenMatiere] = useState(false);
+  const [OpenTransport, setOpenTransport] = useState(false);
 
 
   // Fonction pour fermer les sous-menus quand on réduit la sidebar
@@ -250,6 +251,87 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, isCollapsed, setIsCollapsed }: S
                 >
                 Saisir un comportement
                 </NavLink>
+              </div>
+            )}
+          </div>
+          
+
+          {/* Dropdown: Gestion de transport */}
+          <div>
+            <button
+              onClick={() => setOpenTransport(!OpenTransport)}
+              className={`w-full py-3 px-3 rounded text-grisClaire hover:bg-sky-800 font-bold flex items-center justify-between ${
+                OpenTransport && !isCollapsed ? 'bg-sky-900' : ''
+              }`}
+              title="Gestion Discipline"
+            >
+              <div className="flex items-center">
+                <AssignmentLateIcon />
+                {!isCollapsed && <span className="ml-2">Gestion Transport</span>}
+              </div>
+              {!isCollapsed && (
+                <span>
+                  {OpenTransport ? <ExpandMoreIcon /> : <KeyboardArrowRightIcon />}
+                </span>
+              )}
+            </button>
+            {OpenTransport && !isCollapsed && (
+              <div className="pl-4 flex flex-col gap-1 mt-1">
+                <NavLink
+  to="/dashboard/gestion-bus"
+  className={({ isActive }) =>
+    `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
+      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
+    }`
+  }
+>
+  Gestion de Bus
+</NavLink>
+
+<NavLink
+  to="/dashboard/gestion-trajets"
+  className={({ isActive }) =>
+    `py-2 px-3 rounded no-underline text-grisClaire text-sm font-bold hover:bg-sky-800 ${
+      isActive ? 'bg-sky-800 text-grisClaire font-semibold' : ''
+    }`
+  }
+>
+  Gestion des trajets
+</NavLink>
+
+                <NavLink
+  to="/dashboard/affectation-eleves"
+  className={({ isActive }) =>
+    `py-2 px-3 rounded no-underline text-sm font-bold text-grisClaire hover:bg-bleu-950 ${
+      isActive ? 'bg-bleuFonce text-white font-semibold' : ''
+    }`
+  }
+>
+  Affectation élèves
+</NavLink>
+
+<NavLink
+  to="/dashboard/suivi-temps-reel"
+  className={({ isActive }) =>
+    `py-2 px-3 rounded no-underline text-sm font-bold text-grisClaire hover:bg-bleu-950 ${
+      isActive ? 'bg-bleuFonce text-white font-semibold' : ''
+    }`
+  }
+>
+   Suivi temps réel
+</NavLink>
+
+<NavLink
+  to="/dashboard/historique"
+  className={({ isActive }) =>
+    `py-2 px-3 rounded no-underline text-sm font-bold text-grisClaire hover:bg-bleu-950 ${
+      isActive ? 'bg-bleuFonce text-white font-semibold' : ''
+    }`
+  }
+>
+Historique
+</NavLink>
+
               </div>
             )}
           </div>

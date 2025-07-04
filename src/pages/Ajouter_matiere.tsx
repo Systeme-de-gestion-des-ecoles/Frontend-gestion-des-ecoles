@@ -24,7 +24,7 @@ const AjouterMatiere: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center lg:p-4 py-20">
-      <div className="bg-[#002F6C] rounded-t-lg text-white shadow-md w-full max-w-md">
+      <div className="bg-[#002F6C] rounded-t-lg shadow-md w-full max-w-md">
         <form onSubmit={handleSubmit} className="p-8">
           <h2 className="text-white text-center text-2xl font-bold mb-6">Ajouter une matière</h2>
 

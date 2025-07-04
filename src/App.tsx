@@ -23,16 +23,23 @@ import Parent from './pages/Parent';
 import Remplissage_note from './pages/Remplissage_note';
 import Assignation from './pages/Assigner_matiere';
 import AjouterMatiere from './pages/Ajouter_matiere';
-import Chauffeur from './pages/Chauffeur';
 import Releve_note from './pages/Releve_note';
 import Profil_eleve from './pages/Profil_eleve';
-import ReleveNoteParent from './pages/ReleveNoteParent';
 import Layout from './pages/profeseur/Layout';
 import LoginPage from './pages/LoginPage';
-import Surveillant from './pages/Surveillant';
-import UserList from './pages/ListMatier';
+import UserList from './pages/UserList';
 import VisitorHome from './pages/websitepage/VisitorHome';
 import DemoNavigator from './pages/websitepage/DemoNavigator';
+import GestionBus from './pages/transport/GestionBus';
+import GestionTrajets from './pages/transport/GestionTrajets';
+import AffectationEleves from './pages/transport/AffectationEleves';
+import SuiviTempsReel from './pages/transport/SuiviTempsReel';
+import Historique from './pages/transport/Historique';
+import PageLayoutChauffeur from './pages/chauffeur/PageLayoutChauffeur';
+import PageAppelEleves from './pages/chauffeur/PageAppelEleves';
+import PageSignalerPanne from './pages/chauffeur/PageSignalerPanne';
+import ModifierTrajetPage from './pages/ParentEleve/ModifierTrajetPage';
+import ReleveNoteParentPage from './pages/ParentEleve/ReleveNoteParentPage';
 
 type ProtectedRouteProps = {
   children: ReactNode;
@@ -81,6 +88,11 @@ export default function App() {
             <Route path="register" element={<Register />} />
             <Route path="eleve" element={<Eleve />} />
             <Route path="liste-utilisateur" element={<UserList />} />
+            <Route path="/dashboard/gestion-bus" element={<GestionBus />} />
+            <Route path="/dashboard/gestion-trajets" element={<GestionTrajets />} />
+            <Route path="/dashboard/affectation-eleves" element={<AffectationEleves />} />
+            <Route path="/dashboard/suivi-temps-reel" element={<SuiviTempsReel />} />
+            <Route path="/dashboard/historique" element={<Historique />} />
           </Route>
 
           {/* ✅ Autres routes protégées individuelles */}
@@ -94,7 +106,7 @@ export default function App() {
           />
 
           <Route
-            path="/page-parent"
+            path="/parent"
             element={
               <ProtectedRoute>
                 <PageParent />
@@ -103,28 +115,20 @@ export default function App() {
           />
 
           <Route
-            path="/page-surveillant"
+            path="/surveillant"
             element={
               <ProtectedRoute>
                 <PageLayout />
               </ProtectedRoute>
             }
           />
+           <Route path="/modifier-trajet/:id" element={<ModifierTrajetPage />} />
 
           <Route
-            path="/page-professeur"
+            path="/professeur"
             element={
               <ProtectedRoute>
                 <Layout />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/chauffeur"
-            element={
-              <ProtectedRoute>
-                <Chauffeur />
               </ProtectedRoute>
             }
           />
@@ -134,15 +138,6 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Parent />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/surveillant"
-            element={
-              <ProtectedRoute>
-                <Surveillant />
               </ProtectedRoute>
             }
           />
@@ -178,10 +173,14 @@ export default function App() {
             path="/releve_note/:eleveId"
             element={
               <ProtectedRoute>
-                <ReleveNoteParent />
+                <ReleveNoteParentPage />
               </ProtectedRoute>
             }
           />
+          {/* Route chauffeur */}
+          <Route path="/chauffeur" element={<PageLayoutChauffeur />} />
+          <Route path="/appel-eleves" element={<PageAppelEleves />} />
+          <Route path="/signaler-panne" element={<PageSignalerPanne />} />
 
           {/* ✅ Route inconnue → rediriger vers la page visiteur */}
           <Route path="*" element={<Navigate to="/" replace />} />

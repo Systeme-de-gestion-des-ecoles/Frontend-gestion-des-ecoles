@@ -1,64 +1,88 @@
-import { BookOpen, Users, GraduationCap, Calendar, Clock } from 'lucide-react';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+} from 'recharts';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import ClassIcon from '@mui/icons-material/Class';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 
-const stats = [
-  { title: "Élèves inscrits", value: "1243", icon: Users, trend: "+12% ce mois" },
-  { title: "Cours actifs", value: "42", icon: BookOpen, trend: "+3 nouveaux" },
-  { title: "Enseignants", value: "68", icon: GraduationCap, trend: "2 absents" },
-  { title: "Événements", value: "5", icon: Calendar, trend: "1 aujourd'hui" },
+const dataStatistiques = [
+  { name: 'Utilisateurs', value: 120, icon: <PersonAddIcon /> },
+  { name: 'Classes', value: 8, icon: <ClassIcon /> },
+  { name: 'Matières', value: 24, icon: <AssignmentIcon /> },
+  { name: 'Bus', value: 5, icon: <DirectionsBusIcon /> },
 ];
 
-const quickActions = [
-  { title: "Ajouter un élève", icon: Users },
-  { title: "Créer un cours", icon: BookOpen },
-  { title: "Planifier un examen", icon: GraduationCap },
-  { title: "Voir l'emploi du temps", icon: Calendar },
+const graphData = [
+  { mois: 'Janv', élèves: 40 },
+  { mois: 'Févr', élèves: 60 },
+  { mois: 'Mars', élèves: 80 },
+  { mois: 'Avr', élèves: 75 },
+  { mois: 'Mai', élèves: 90 },
 ];
 
-export default function Dashboard() {
+const Dashboard = () => {
   return (
-    <div className="space-y-6">
-      {/* En-tête */}
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">Tableau de bord</h1>
-        <div className="flex items-center space-x-2">
-          <Clock className="w-5 h-5 text-gray-500" />
-          <span className="text-sm text-gray-600">{new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
-        </div>
-      </div>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      {/* Titre */}
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Tableau de bord</h1>
 
       {/* Statistiques */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-sm font-medium text-gray-500">{stat.title}</p>
-                <p className="text-2xl font-bold mt-1">{stat.value}</p>
-                <p className="text-xs text-green-600 mt-1">{stat.trend}</p>
-              </div>
-              <div className="p-2 rounded-full bg-blue-50 text-blue-600">
-                <stat.icon className="w-5 h-5" />
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        {dataStatistiques.map((stat, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-2xl shadow-md p-5 flex items-center gap-4 hover:shadow-lg transition-all"
+          >
+            <div className="bg-blue-100 text-blue-800 p-3 rounded-full">
+              {stat.icon}
+            </div>
+            <div>
+              <h4 className="text-gray-600 text-sm">{stat.name}</h4>
+              <p className="text-2xl font-bold">{stat.value}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Raccourcis */}
-      <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-        <h2 className="text-lg font-semibold mb-4">Actions rapides</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {quickActions.map((action, index) => (
-            <button
-              key={index}
-              className="flex flex-col items-center justify-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
-            >
-              <action.icon className="w-6 h-6 text-blue-600 mb-2" />
-              <span className="text-sm text-center">{action.title}</span>
-            </button>
-          ))}
-        </div>
+      {/* Graphique */}
+      <div className="bg-white rounded-2xl shadow-md p-6 mb-10">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Évolution des élèves inscrits</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={graphData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="mois" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="élèves" fill="#0ea5e9" radius={[10, 10, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Activité récente */}
+      <div className="bg-white rounded-2xl shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Activité récente</h2>
+        <ul className="divide-y divide-gray-200">
+          <li className="py-3 flex justify-between text-sm text-gray-600">
+            <span>👤 Nouvel enseignant ajouté</span>
+            <span className="text-gray-400">il y a 1h</span>
+          </li>
+          <li className="py-3 flex justify-between text-sm text-gray-600">
+            <span>🚌 Nouveau trajet assigné</span>
+            <span className="text-gray-400">il y a 2h</span>
+          </li>
+          <li className="py-3 flex justify-between text-sm text-gray-600">
+            <span>📚 Matière "Maths" modifiée</span>
+            <span className="text-gray-400">Hier</span>
+          </li>
+          <li className="py-3 flex justify-between text-sm text-gray-600">
+            <span>🎓 Élève inscrit à la classe 5e</span>
+            <span className="text-gray-400">Hier</span>
+          </li>
+        </ul>
       </div>
     </div>
   );
-}
+};
+
+export default Dashboard;

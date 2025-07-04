@@ -80,11 +80,19 @@ export default function EspaceParent() {
             {/* Bouton pour accéder aux notes détaillées */}
             <Link
                 to={`/releve_note/${enfant.id}`} // Assurez-vous d'avoir cette route configurée dans votre router
-              className="mt-auto flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="mt-auto flex items-center justify-center gap-2 bg-bleuFonce text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Voir le releve de notes 
               <ArrowForwardIcon fontSize="small" />
             </Link>
+            <Link
+  to={`/modifier-trajet/${enfant.id}`}
+  className="mt-2 flex items-center justify-center gap-2 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors"
+>
+  Modifier le trajet de mon enfant
+  <ArrowForwardIcon fontSize="small" />
+</Link>
+
           </div>
         ))}
       </div>

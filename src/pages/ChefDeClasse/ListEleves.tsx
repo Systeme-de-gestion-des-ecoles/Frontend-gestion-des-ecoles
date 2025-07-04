@@ -86,11 +86,11 @@ export default function ListEleves() {
         <table className="min-w-full border-separate border-spacing-y-2">
           <thead>
             <tr>
-              <th className="bg-gray-400 px-4 py-2 text-white rounded">MATRICULE</th>
-              <th className="bg-gray-400 px-4 py-2 text-white rounded">NOM</th>
-              <th className="bg-gray-400 px-4 py-2 text-white rounded">PRENOM</th>
-              <th className="bg-gray-400 px-4 py-2 text-white rounded">SEXE</th>
-              <th className="bg-gray-400 px-4 py-2 text-white rounded">STATUS</th>
+              <th className="bg-bleuFonce px-4 py-2 text-white rounded">MATRICULE</th>
+              <th className="bg-bleuFonce px-4 py-2 text-white rounded">NOM</th>
+              <th className="bg-bleuFonce px-4 py-2 text-white rounded">PRENOM</th>
+              <th className="bg-bleuFonce px-4 py-2 text-white rounded">SEXE</th>
+              <th className="bg-bleuFonce px-4 py-2 text-white rounded">STATUS</th>
             </tr>
           </thead>
           <tbody>
